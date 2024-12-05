@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StayHealthy</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black shadow-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">StayHealthy</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse text-left" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#sports">Olahraga</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#rekomen">Shop</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#resep">Resep</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#gizi">Nutrisi</a>
+          </li>
+        </ul>
+        <div class="d-flex align-items-center">
+          <a href="pages/login.html" class="text-white me-3">
+            <i class="fas fa-user fa-lg"></i>
+          </a>
+          <a href="#" class="text-white me-3">
+            <i class="fas fa-search fa-lg"></i>
+          </a>
+          <a href="#" class="text-white">
+            <i class="fas fa-shopping-cart fa-lg"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- End of Menu Navigasi-->
+
+  <!-- Protein Shop Section -->
+  <section id="rekomen" class="container mt-5">
+    <h2 class="text-center mb-4">Protein Shop</h2>
+    <p class="text-center mb-5">Temukan berbagai jenis protein untuk mendukung gaya hidup sehat Anda.</p>
+
+    <!-- Filters for Category, Price Range -->
+    <div class="row mb-4">
+      <div class="col-md-4">
+        <select class="form-select" aria-label="Sort By">
+          <option selected>Urutkan berdasarkan</option>
+          <option value="priceLow">Harga: Rendah ke Tinggi</option>
+          <option value="priceHigh">Harga: Tinggi ke Rendah</option>
+          <option value="popular">Paling Populer</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Product Cards -->
+    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+      <!-- Protein 1 -->
+      <div class="col">
+        <div class="card h-100">
+          <img src="https://via.placeholder.com/300" class="card-img-top" alt="Whey Protein">
+          <div class="card-body">
+            <h5 class="card-title">Whey Protein</h5>
+            <p class="card-text">Mendukung pertumbuhan otot dan pemulihan setelah olahraga.</p>
+            <p class="price">Rp.150.000</p>
+            <div class="d-flex justify-content-between">
+              <button class="btn btn-primary">Tambah ke Keranjang</button>
+              <button class="btn btn-outline-secondary" data-bs-toggle="modal"
+                data-bs-target="#protein1Modal">Detail</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Protein 2 -->
+      <div class="col">
+        <div class="card h-100">
+          <img src="https://via.placeholder.com/300" class="card-img-top" alt="Casein Protein">
+          <div class="card-body">
+            <h5 class="card-title">Casein Protein</h5>
+            <p class="card-text">Melepaskan protein secara perlahan untuk pemulihan malam hari.</p>
+            <p class="price">Rp.180.000</p>
+            <div class="d-flex justify-content-between">
+              <button class="btn btn-primary">Tambah ke Keranjang</button>
+              <button class="btn btn-outline-secondary" data-bs-toggle="modal"
+                data-bs-target="#protein2Modal">Detail</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Protein 3 -->
+      <div class="col">
+        <div class="card h-100">
+          <img src="https://via.placeholder.com/300" class="card-img-top" alt="Plant-Based Protein">
+          <div class="card-body">
+            <h5 class="card-title">Plant-Based Protein</h5>
+            <p class="card-text">Sumber protein dari tumbuhan untuk vegan dan vegetarian.</p>
+            <p class="price">Rp.140.000</p>
+            <div class="d-flex justify-content-between">
+              <button class="btn btn-primary">Tambah ke Keranjang</button>
+              <button class="btn btn-outline-secondary" data-bs-toggle="modal"
+                data-bs-target="#protein3Modal">Detail</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal Example -->
+  <div class="modal fade" id="protein1Modal" tabindex="-1" aria-labelledby="protein1ModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="protein1ModalLabel">Whey Protein</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Whey Protein adalah suplemen favorit untuk meningkatkan massa otot dan pemulihan setelah olahraga intens.
+          </p>
+          <p><strong>Harga:</strong> Rp.150.000</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer class="footer bg-dark text-light pt-4">
+    <div class="container">
+      <div class="text-center">
+        <p class="mb-0">&copy; 2024 StayHealthy. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

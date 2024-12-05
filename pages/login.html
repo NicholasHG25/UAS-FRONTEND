@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="authApp">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login  Sign Up</title>
+    <title>Login Sign Up</title>
     <style>
-        /* Gaya CSS tetap sama */
+        /* CSS untuk styling halaman */
         * {
             margin: 0;
             padding: 0;
@@ -28,18 +28,12 @@
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
-            backdrop-filter: blur(10px);
             text-align: center;
             width: 350px;
             animation: fadeIn 1s ease-in-out;
         }
 
         .container h1 {
-            margin-bottom: 20px;
-            font-size: 2em;
-        }
-
-        .container form {
             margin-bottom: 20px;
         }
 
@@ -49,110 +43,120 @@
             margin: 10px 0;
             border: none;
             border-radius: 5px;
-            outline: none;
-            font-size: 1em;
-        }
-
-        .container input[type="email"],
-        .container input[type="password"] {
             background: rgba(255, 255, 255, 0.2);
             color: #fff;
-        }
-
-        .container input:focus {
-            background: rgba(255, 255, 255, 0.3);
-            transition: background 0.3s ease;
         }
 
         .container button {
             width: 100%;
             padding: 10px;
+            margin: 10px 0;
             background: #3c3c3c;
             color: #fff;
             border: none;
             border-radius: 5px;
-            font-size: 1em;
             cursor: pointer;
-            transition: transform 0.3s ease, background 0.3s ease;
-        }
-
-        .container button:hover {
-            background: #1c1c1c;
-            transform: scale(1.05);
         }
 
         .switch {
-            cursor: pointer;
             color: #9e9e9e;
-            font-size: 0.9em;
-            margin-top: 15px;
-        }
-
-        .switch:hover {
-            color: #ffffff;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            margin-top: 10px;
+            cursor: pointer;
         }
     </style>
 </head>
 
-<body>
-    <div class="container" id="login-container">
-        <h1 id="form-title">Login</h1>
-        <form id="login-form">
-            <input type="email" placeholder="Email Address" required>
-            <input type="password" placeholder="Password" required>
+<body ng-controller="AuthController">
+    <div class="container" id="auth-container">
+        <h1>{{ formTitle }}</h1>
+
+        <!-- Form Login -->
+        <form ng-show="isLoginForm" ng-submit="login()">
+            <input type="email" ng-model="loginData.email" placeholder="Email Address" required>
+            <input type="password" ng-model="loginData.password" placeholder="Password" required>
             <button type="submit">Log In</button>
         </form>
 
-        <form id="signup-form" style="display: none;">
-            <input type="text" placeholder="Full Name" required>
-            <input type="email" placeholder="Email Address" required>
-            <input type="password" placeholder="Password" required>
-            <div class="policy">
-                <label for="policy">I agree to the <a href="#" style="color: #9e9e9e; text-decoration: underline;">Terms
-                        Policy</a>.</label>
-                <input type="checkbox" id="policy" required>
-            </div>
+        <!-- Form Signup -->
+        <form ng-show="!isLoginForm" ng-submit="register()">
+            <input type="text" ng-model="signupData.name" placeholder="Full Name" required>
+            <input type="email" ng-model="signupData.email" placeholder="Email Address" required>
+            <input type="password" ng-model="signupData.password" placeholder="Password" required>
+            <label>
+                <input type="checkbox" ng-model="signupData.terms" required> I agree to the Terms Policy
+            </label>
             <button type="submit">Sign Up</button>
-            <button type="button" id="back-button" style="margin-top: 10px;">Back</button>
+            <button type="button" ng-click="toggleForm()">Back</button>
         </form>
 
-        <p class="switch">
-            Don't have an account?
-            <span id="signup-link" style="text-decoration: underline; cursor: pointer;">Sign up</span>
+        <!-- Switch Between Forms -->
+        <p class="switch" ng-show="isLoginForm">
+            Don't have an account? <span ng-click="toggleForm()">Sign up</span>
         </p>
     </div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <script>
-        const signupLink = document.getElementById("signup-link");
-        const loginForm = document.getElementById("login-form");
-        const signupForm = document.getElementById("signup-form");
-        const formTitle = document.getElementById("form-title");
-        const backButton = document.getElementById("back-button");
+        const app = angular.module('authApp', []);
 
-        // Beralih ke Sign Up
-        signupLink.addEventListener("click", () => {
-            loginForm.style.display = "none";
-            signupForm.style.display = "block";
-            formTitle.textContent = "Sign Up";
+        app.factory('AuthService', function () {
+            let users = [];
+            let currentUser = null;
+
+            return {
+                register: function (user) {
+                    users.push(user);
+                },
+                login: function (email, password) {
+                    return users.find(user => user.email === email && user.password === password);
+                },
+                setCurrentUser: function (user) {
+                    currentUser = user;
+                },
+                getCurrentUser: function () {
+                    return currentUser;
+                }
+            };
         });
 
-        // Kembali ke Login
-        backButton.addEventListener("click", () => {
-            signupForm.style.display = "none";
-            loginForm.style.display = "block";
-            formTitle.textContent = "Login";
+        app.controller('AuthController', function ($scope, AuthService) {
+            $scope.isLoginForm = true;
+            $scope.formTitle = 'Login';
+
+            $scope.loginData = {};
+            $scope.signupData = {};
+
+            $scope.toggleForm = function () {
+                $scope.isLoginForm = !$scope.isLoginForm;
+                $scope.formTitle = $scope.isLoginForm ? 'Login' : 'Sign Up';
+            };
+
+            $scope.register = function () {
+                if ($scope.signupData.terms) {
+                    AuthService.register({
+                        name: $scope.signupData.name,
+                        email: $scope.signupData.email,
+                        password: $scope.signupData.password
+                    });
+                    alert('Account created successfully!');
+                    $scope.toggleForm();
+                } else {
+                    alert('Please agree to the Terms Policy.');
+                }
+            };
+
+            $scope.login = function () {
+                const user = AuthService.login($scope.loginData.email, $scope.loginData.password);
+                if (user) {
+                    AuthService.setCurrentUser(user);
+                    sessionStorage.setItem("isLoggedIn", "true");
+                    sessionStorage.setItem("currentUser", JSON.stringify(user));
+                    alert("Login successful!");
+                    window.location.href = "../index.html";
+                } else {
+                    alert("Invalid email or password.");
+                }
+            };
         });
     </script>
 </body>

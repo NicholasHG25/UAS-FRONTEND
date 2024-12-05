@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>StayHealthy</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/styles.css">
+    
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  </head>
+  <body>
+    
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black shadow-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">StayHealthy</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse text-left" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+                    </li>
+    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.html#sports">Olahraga</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.html#rekomen">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.html#resep">Resep</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.html#gizi">Nutrisi</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <a href="#" class="text-white me-3">
+                        <i class="fas fa-user fa-lg"></i>
+                    </a>
+                    <a href="#" class="text-white me-3">
+                        <i class="fas fa-search fa-lg"></i>
+                    </a>
+                    <a href="/Section/checkout.html" class="text-white">
+                      <i class="fas fa-shopping-cart fa-lg"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+<!-- Bagian: Fitur Unggulan -->
+<section class="py-5" id="fitur">
+    <div class="container">
+      <h2 class="text-center mb-5">Kenapa Memilih Latihan Fleksibilitas?</h2>
+      <div class="row g-4">
+        <!-- Fitur 1 -->
+        <div class="col-md-4">
+          <div class="card h-100 shadow-lg border-0">
+            <div class="card-body text-center">
+              <div class="icon-wrapper bg-primary text-white rounded-circle mb-3 mx-auto" style="width: 70px; height: 70px; display: flex; justify-content: center; align-items: center;">
+                <i class="fas fa-stretch fa-2x"></i>
+              </div>
+              <h5 class="card-title">Meningkatkan Fleksibilitas</h5>
+              <p class="card-text">
+                Latihan fleksibilitas untuk meningkatkan rentang gerak dan kebugaran tubuh.
+              </p>
+            </div>
+            <div class="card-footer bg-transparent border-0 text-center">
+              <!-- Tombol untuk menampilkan artikel -->
+              <button type="button" class="btn btn-outline-primary" onclick="toggleCard('card-info-flexibilitas')">Pelajari Lebih</button>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Fitur 2 -->
+        <div class="col-md-4">
+          <div class="card h-100 shadow-lg border-0">
+            <div class="card-body text-center">
+              <div class="icon-wrapper bg-success text-white rounded-circle mb-3 mx-auto" style="width: 70px; height: 70px; display: flex; justify-content: center; align-items: center;">
+                <i class="fas fa-spa fa-2x"></i>
+              </div>
+              <h5 class="card-title">Peregangan Otot</h5>
+              <p class="card-text">
+                Fokus pada peregangan otot untuk mencegah cedera dan meningkatkan fleksibilitas.
+              </p>
+            </div>
+            <div class="card-footer bg-transparent border-0 text-center">
+              <!-- Tombol untuk menampilkan artikel -->
+              <button type="button" class="btn btn-outline-success" onclick="toggleCard('card-info-peregangan')">Pelajari Lebih</button>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Fitur 3 -->
+        <div class="col-md-4">
+          <div class="card h-100 shadow-lg border-0">
+            <div class="card-body text-center">
+              <div class="icon-wrapper bg-warning text-white rounded-circle mb-3 mx-auto" style="width: 70px; height: 70px; display: flex; justify-content: center; align-items: center;">
+                <i class="fas fa-user-injured fa-2x"></i>
+              </div>
+              <h5 class="card-title">Mencegah Cedera</h5>
+              <p class="card-text">
+                Latihan fleksibilitas dapat membantu tubuh tetap sehat dan mencegah cedera.
+              </p>
+            </div>
+            <div class="card-footer bg-transparent border-0 text-center">
+              <!-- Tombol untuk menampilkan artikel -->
+              <button type="button" class="btn btn-outline-warning" onclick="toggleCard('card-info-cedera')">Pelajari Lebih</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Card Artikel Fleksibilitas (Sembunyi awalnya) -->
+  <div id="card-info-flexibilitas" class="container mt-4" style="display: none;">
+    <div class="card shadow-lg">
+      <div class="card-body">
+        <h5 class="card-title">Artikel Latihan Fleksibilitas</h5>
+        <p class="card-text">
+          Latihan fleksibilitas sangat penting untuk meningkatkan rentang gerak tubuh dan mencegah cedera. Beberapa latihan fleksibilitas yang populer termasuk peregangan otot punggung, leher, dan hamstring. Dengan rutinitas yang konsisten, Anda dapat meningkatkan fleksibilitas tubuh secara keseluruhan, yang sangat membantu dalam berbagai aktivitas fisik.
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Card Artikel Peregangan Otot (Sembunyi awalnya) -->
+  <div id="card-info-peregangan" class="container mt-4" style="display: none;">
+    <div class="card shadow-lg">
+      <div class="card-body">
+        <h5 class="card-title">Artikel Peregangan Otot</h5>
+        <p class="card-text">
+          Peregangan otot dapat membantu mengurangi ketegangan otot, meningkatkan fleksibilitas, dan mengurangi rasa sakit setelah beraktivitas. Latihan peregangan seperti yoga dan pilates bisa memberikan hasil yang signifikan dalam meningkatkan kelenturan tubuh.
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Card Artikel Mencegah Cedera (Sembunyi awalnya) -->
+  <div id="card-info-cedera" class="container mt-4" style="display: none;">
+    <div class="card shadow-lg">
+      <div class="card-body">
+        <h5 class="card-title">Artikel Mencegah Cedera</h5>
+        <p class="card-text">
+          Latihan fleksibilitas yang teratur sangat membantu dalam mencegah cedera otot dan sendi. Peregangan yang tepat dapat memperbaiki postur tubuh dan mengurangi ketegangan, yang merupakan penyebab umum dari cedera olahraga.
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- JavaScript untuk menampilkan card artikel -->
+  <script>
+    function toggleCard(id) {
+      var card = document.getElementById(id);
+      
+      // Cek apakah card sudah ditampilkan
+      if (card.style.display === "none") {
+        // Menampilkan card dengan efek animasi
+        card.style.display = "block";
+        card.classList.add("slide-up");
+      } else {
+        // Menyembunyikan card
+        card.style.display = "none";
+        card.classList.remove("slide-up");
+      }
+    }
+  </script>
+  
+  <!-- CSS untuk animasi slide-up -->
+  <style>
+    #card-info-flexibilitas, #card-info-peregangan, #card-info-cedera {
+      display: none;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s ease-in-out;
+    }
+  
+    #card-info-flexibilitas.slide-up, #card-info-peregangan.slide-up, #card-info-cedera.slide-up {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+
+<footer class="footer bg-dark text-light pt-4">
+    <div class="container">
+        <div class="row">
+            <!-- Left Section: Navigation Links and Social Media Icons -->
+            <div class="col-md-12">
+                <ul class="list-unstyled">
+                    <li><a href="#home" class="text-light">Home</a></li>
+                    <li><a href="pages/about.html" class="text-light">About Us</a></li>
+                    <li><a href="#" class="text-light">Shop</a></li>
+                    <li><a href="pages/contact.html" class="text-light">Contact Us</a></li>
+                </ul>
+                <!-- Social Media Icons -->
+
+                <div class="wrapper d-flex justify-content-center my-4">
+                    <div class="button">
+                        <a href="https://facebook.com" target="_blank">
+                            <div class="icon"><i class="fab fa-facebook-f"></i></div>
+                            <span>Facebook</span>
+                        </a>
+                    </div>
+                    <div class="button">
+                        <a href="https://twitter.com" target="_blank">
+                            <div class="icon"><i class="fab fa-twitter"></i></div>
+                            <span>Twitter</span>
+                        </a>
+                    </div>
+                    <div class="button">
+                        <a href="https://github.com/NicholasHG25/UAS-untuk-CLone.git" target="_blank">
+                            <div class="icon"><i class="fab fa-github"></i></div>
+                            <span>Github</span>
+                        </a>
+                    </div>
+                    <div class="button">
+                        <a href="https://instagram.com" target="_blank">
+                            <div class="icon"><i class="fab fa-instagram"></i></div>
+                            <span>Instagram</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="border-secondary">
+        <div class="text-center">
+            <p class="mb-0" style="height: 50px;">&copy; 2024 StayHealthy. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>

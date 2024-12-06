@@ -5,20 +5,22 @@ function checkLoginStatus() {
     const accountButton = document.getElementById("accountButton");
     const accountText = document.getElementById("accountText");
 
-    if (isLoggedIn === "true" && currentUser) {
-        // Jika pengguna login
-        accountText.textContent = "Logout";
-        accountButton.href = "#";
-        accountButton.addEventListener("click", logout);
-    } else {
-        // Jika pengguna belum login
-        accountText.textContent = "Login";
-        accountButton.href = "pages/login.html";
+    if (accountButton && accountText) { // Pastikan elemen ada
+        if (isLoggedIn === "true" && currentUser) {
+            // Jika pengguna login
+            accountText.textContent = "Logout";
+            accountButton.href = "#";
+            accountButton.addEventListener("click", logout);
+        } else {
+            // Jika pengguna belum login
+            accountText.textContent = "";
+            accountButton.href = "pages/login.html";
+        }
     }
 }
 
 function logout(event) {
-    event.preventDefault();
+    event.preventDefault(); // Mencegah aksi default dari href
     localStorage.removeItem("isLoggedIn");
     localStorage.removeItem("currentUser");
     alert("You have been logged out.");

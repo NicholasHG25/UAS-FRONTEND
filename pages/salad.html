@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="recipeApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resep Salad Segar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script defer src="backend/auth.js"></script>
+
+</head>
+
+<body ng-controller="RecipeController">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black shadow-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">StayHealthy</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse text-left" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+                    </li>
+    
+                    <li class="nav-item">
+                        <a class="nav-link" href="../#sports">Olahraga</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#rekomen">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#resep">Resep</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#gizi">Nutrisi</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <a id="accountButton" href="login.html" class="text-white me-3">
+                        <i id="userIcon" class="fas fa-user fa-lg"></i>
+                        <span id="accountText"></span>
+                    </a>
+                    <a href="search.html" class="text-white me-3">
+                        <i class="fas fa-search fa-lg"></i>
+                    </a>
+                    <a href="#" class="text-white">
+                        <i class="fas fa-shopping-cart fa-lg"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5 pt-5">
+        <h1 class="text-center mb-4">Resep Salad Segar</h1>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <!-- Gambar Resep -->
+                <img src="https://images.pexels.com/photos/1059905/pexels-photo-1059905.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="img-fluid rounded mb-4"
+                    alt="Salad Segar">
+                <p class="text-center">Resep salad sehat dengan kombinasi sayuran segar dan dressing rendah kalori. Cocok
+                    untuk sarapan atau makan malam yang ringan.</p>
+    
+                <!-- Bahan -->
+                <h3 class="mt-4">Bahan:</h3>
+                <ul class="list-group mb-4">
+                    <li class="list-group-item">Lettuce (Selada)</li>
+                    <li class="list-group-item">Tomat</li>
+                    <li class="list-group-item">Timun</li>
+                    <li class="list-group-item">Dressing rendah kalori</li>
+                </ul>
+    
+                <!-- Langkah-langkah -->
+                <h3>Langkah-langkah:</h3>
+                <ol class="list-group list-group-numbered mb-4">
+                    <li class="list-group-item">Cuci semua sayuran hingga bersih.</li>
+                    <li class="list-group-item">Potong-potong sayuran sesuai selera.</li>
+                    <li class="list-group-item">Campur semua bahan dalam mangkuk besar.</li>
+                    <li class="list-group-item">Tambahkan dressing sesuai selera, lalu aduk rata.</li>
+                </ol>
+    
+                <!-- Tambahan Resep Salad -->
+                <h3 class="mt-5">Jenis Salad Lainnya</h3>
+    
+                <!-- Caesar Salad -->
+                <div class="mb-4">
+                    <h4>Caesar Salad</h4>
+                    <img src="https://media.istockphoto.com/id/669861628/photo/bowl-of-caesar-salad-closeup.webp?a=1&b=1&s=612x612&w=0&k=20&c=fm_E-6pTjPCuOJ8w2Vj3lQDI3Uzt-RHrdbpwp5JfcSw=" class="img-fluid rounded mb-4" alt="Salad Segar">
+                    <ul class="list-group mb-2">
+                        <li class="list-group-item">Romaine lettuce</li>
+                        <li class="list-group-item">Crouton</li>
+                        <li class="list-group-item">Keju parmesan parut</li>
+                        <li class="list-group-item">Saus Caesar dressing</li>
+                    </ul>
+                    <ol class="list-group list-group-numbered">
+                        <li class="list-group-item">Potong romaine lettuce menjadi ukuran kecil.</li>
+                        <li class="list-group-item">Campurkan dengan crouton dan keju parmesan.</li>
+                        <li class="list-group-item">Tambahkan Caesar dressing dan aduk hingga merata.</li>
+                        <li class="list-group-item">Sajikan segera.</li>
+                    </ol>
+                </div>
+    
+                <!-- Greek Salad -->
+                <div class="mb-4">
+                    <h4>Greek Salad</h4>
+                    <img src="https://media.istockphoto.com/id/1670305570/photo/greek-salad.webp?a=1&b=1&s=612x612&w=0&k=20&c=Y5yLxB_I2VjJm3ysdfQNo9BiTX3zFcOyG-tPSPivkPs=" class="img-fluid rounded mb-4" alt="Salad Segar">
+                    <ul class="list-group mb-2">
+                        <li class="list-group-item">Timun</li>
+                        <li class="list-group-item">Tomat ceri</li>
+                        <li class="list-group-item">Paprika hijau</li>
+                        <li class="list-group-item">Zaitun hitam</li>
+                        <li class="list-group-item">Keju feta</li>
+                        <li class="list-group-item">Minyak zaitun dan perasan lemon</li>
+                    </ul>
+                    <ol class="list-group list-group-numbered">
+                        <li class="list-group-item">Potong-potong timun, tomat ceri, dan paprika hijau.</li>
+                        <li class="list-group-item">Tambahkan zaitun hitam dan keju feta yang telah dipotong dadu.</li>
+                        <li class="list-group-item">Siram dengan minyak zaitun dan perasan lemon.</li>
+                        <li class="list-group-item">Sajikan dingin.</li>
+                    </ol>
+                </div>
+    
+                <!-- Fruit Salad -->
+                <div class="mb-4">
+                    <h4>Fruit Salad</h4>
+                    <img src="https://media.istockphoto.com/id/1225981808/photo/healthy-homemade-fruit-salad-bowl-shot-from-above.webp?a=1&b=1&s=612x612&w=0&k=20&c=llSU8kL67h7yEoznAwgbtRxw3VyS3K6wAPK7Q9LwO8Y=" class="img-fluid rounded mb-4" alt="Salad Segar">
+                    <ul class="list-group mb-2">
+                        <li class="list-group-item">Potongan apel</li>
+                        <li class="list-group-item">Anggur</li>
+                        <li class="list-group-item">Kiwi</li>
+                        <li class="list-group-item">Jeruk</li>
+                        <li class="list-group-item">Yoghurt tawar atau madu</li>
+                    </ul>
+                    <ol class="list-group list-group-numbered">
+                        <li class="list-group-item">Potong semua buah menjadi ukuran kecil.</li>
+                        <li class="list-group-item">Campurkan semua buah dalam mangkuk besar.</li>
+                        <li class="list-group-item">Tambahkan yoghurt atau madu sebagai dressing.</li>
+                        <li class="list-group-item">Sajikan dingin.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<!-- Footer -->
+    <footer class="footer bg-dark text-light pt-4">
+        <div class="container">
+            <div class="row">
+                <!-- Left Section: Navigation Links and Social Media Icons -->
+                <div class="col-md-12">
+                    <ul class="list-unstyled">
+                        <li><a href="../index.html" class="text-light">Home</a></li>
+                        <li><a href="#" class="text-light">Shop</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact Us</a>
+                        </li>
+                    </ul>
+                    <!-- Social Media Icons -->
+    
+                    <div class="wrapper d-flex justify-content-center my-4">
+                        <div class="button">
+                            <a href="https://facebook.com" target="_blank">
+                                <div class="icon"><i class="fab fa-facebook-f"></i></div>
+                                <span>Facebook</span>
+                            </a>
+                        </div>
+                        <div class="button">
+                            <a href="https://twitter.com" target="_blank">
+                                <div class="icon"><i class="fab fa-twitter"></i></div>
+                                <span>Twitter</span>
+                            </a>
+                        </div>
+                        <div class="button">
+                            <a href="https://github.com/NicholasHG25/UAS-untuk-CLone.git" target="_blank">
+                                <div class="icon"><i class="fab fa-github"></i></div>
+                                <span>Github</span>
+                            </a>
+                        </div>
+                        <div class="button">
+                            <a href="https://instagram.com" target="_blank">
+                                <div class="icon"><i class="fab fa-instagram"></i></div>
+                                <span>Instagram</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-secondary">
+            <div class="text-center">
+                <p class="mb-0" style="height: 50px;">&copy; 2024 StayHealthy. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script>
+        // AngularJS Controller
+        angular.module('recipeApp', []).controller('RecipeController', function ($scope) {
+            $scope.calories = { lettuce: 0, tomato: 0, cucumber: 0, dressing: 0 };
+            $scope.totalCalories = null;
+
+            $scope.calculateCalories = function () {
+                const calorieData = { lettuce: 0.15, tomato: 0.18, cucumber: 0.16, dressing: 1.5 };
+                $scope.totalCalories = (
+                    ($scope.calories.lettuce * calorieData.lettuce) +
+                    ($scope.calories.tomato * calorieData.tomato) +
+                    ($scope.calories.cucumber * calorieData.cucumber) +
+                    ($scope.calories.dressing * calorieData.dressing)
+                ).toFixed(2);
+            };
+        });
+    </script>
+
+</body>
+
+</html>
